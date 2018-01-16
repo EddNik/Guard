@@ -1,0 +1,11 @@
+{% extends 'bootstrap.html.twig' %}
+
+{% block body %}
+    <h2>Update article #{{ article.id }}</h2>
+    {{ form(edit_form) }}
+    <div class="alert alert-success" role="alert">
+        This is a changing of article
+        <a href="{{ path("article_homepage") }}" class="alert-link"> ' Back to the articles list '</a>
+        Give it a click if you won't be change it.
+    </div>
+{% endblock %}

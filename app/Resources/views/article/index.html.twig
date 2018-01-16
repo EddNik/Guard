@@ -1,0 +1,28 @@
+{% extends 'bootstrap.html.twig' %}
+
+{% block body %}
+    {% for article in article_list %}
+        <tr>
+            <td><a href="{{ path('article_homepage', { 'id': article.id }) }}">{{ article.id }}</a></td>
+            <td>{{ article.name }}</td>
+            <td>{{ article.description }}</td>
+            <td>{% if article.createdAt %}{{ article.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <p><a href="{{ path('article_show', { 'id': article.id }) }}">select</a></p>
+                    </li>
+                    <li>
+                        <p><a href="{{ path('article_update', { 'id': article.id }) }}">update</a>
+                    </li>
+                    <li>
+                        <p><a href="{{ path('article_delete', { 'id': article.id }) }}">delete</a>
+                    </li>
+                    <li>
+                        <p><a href="{{ path('article_new') }}">insert</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'bootstrap.html.twig' %}
+
+{% block body %}
+
+    <h2>{{ detail_form.name }}</h2>
+
+    <span>{{ detail_form.createdAt|date("m/d/Y H:i") }}</span>
+
+    <p class="text-md-left">{{ detail_form.description }}</p>
+
+    <div class="alert alert-success" role="alert">
+        <a href="{{ path("article_homepage") }}" class="alert-link">Back to the articles list</a>
+    </div>
+
+{% endblock %}

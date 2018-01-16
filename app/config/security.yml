@@ -1,0 +1,23 @@
+security:
+    encoders:
+            AppBundle\Entity\User: bcrypt
+    providers:
+        my_db_provider:
+                      entity:
+                            class: AppBundle\Entity\User
+                            property: username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        secured_area:
+            pattern: ^/article
+            simple_form:
+                authenticator: AppBundle\Security\UserAuthenticator
+                check_path:    /article/login_check
+                login_path:    login
+            logout:
+                 path: /article/logout
+                 target: /login
+
